@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTransitions.Maui", "SharedTransitions.Maui\SharedTransitions.Maui.csproj", "{221E4E38-0426-4FFA-B92F-EA635DA696D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.Maui", "Example.Maui\Example.Maui.csproj", "{17DDE1BE-B33A-4A9B-BB52-AD2935E6C677}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{221E4E38-0426-4FFA-B92F-EA635DA696D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221E4E38-0426-4FFA-B92F-EA635DA696D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221E4E38-0426-4FFA-B92F-EA635DA696D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221E4E38-0426-4FFA-B92F-EA635DA696D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17DDE1BE-B33A-4A9B-BB52-AD2935E6C677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17DDE1BE-B33A-4A9B-BB52-AD2935E6C677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17DDE1BE-B33A-4A9B-BB52-AD2935E6C677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17DDE1BE-B33A-4A9B-BB52-AD2935E6C677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
