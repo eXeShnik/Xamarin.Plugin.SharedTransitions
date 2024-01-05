@@ -7,15 +7,17 @@ public class SharedTransitionPageRenderer : PageHandler
 {
     protected override void DisconnectHandler(ContentViewGroup platformView)
     {
+#if IOS
         if (Application.Current != null && Application.Current.MainPage is ISharedTransitionContainer shellPage)
         {
-            shellPage.TransitionMap.RemoveFromPage((Page)VirtualView);
+            shellPage.TransitionMap.RemoveFromMap((Page)VirtualView);
         }
 
         if (VirtualView.Parent is ISharedTransitionContainer navPage)
         {
-            navPage.TransitionMap.RemoveFromPage((Page)VirtualView);
+            navPage.TransitionMap.RemoveFromMap((Page)VirtualView);
         }
+#endif
 
         base.DisconnectHandler(platformView);
     }

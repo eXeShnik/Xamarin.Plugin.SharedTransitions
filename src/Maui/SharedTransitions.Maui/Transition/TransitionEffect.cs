@@ -1,8 +1,8 @@
 ﻿#if ANDROID
 using Android.OS;
+using AndroidX.Core.View;
 #endif
 using System.ComponentModel;
-using AndroidX.Core.View;
 using Microsoft.Maui.Controls.Platform;
 using Debug = System.Diagnostics.Debug;
 

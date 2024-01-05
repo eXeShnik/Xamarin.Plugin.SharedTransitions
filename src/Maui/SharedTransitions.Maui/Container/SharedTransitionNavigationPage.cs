@@ -191,13 +191,8 @@ public class SharedTransitionNavigationPage : NavigationPage, ISharedTransitionC
 
     protected override void OnChildRemoved(Element child, int oldLogicalIndex)
     {
-        TransitionMap.RemoveFromPage((Page)child);
-
-        if (child is ITransitionAware)
-        {
-            MessagingCenter.Unsubscribe<SharedTransitionNavigationPage, SharedTransitionEventArgs>(child, "SendTransitionStarted");
-            MessagingCenter.Unsubscribe<SharedTransitionNavigationPage, SharedTransitionEventArgs>(child, "SendTransitionEnded");
-            MessagingCenter.Unsubscribe<SharedTransitionNavigationPage, SharedTransitionEventArgs>(child, "SendTransitionCancelled");
-        }
+#if IOS
+        TransitionMap.RemoveFromMap((Page)child);
+#endif
     }
 }

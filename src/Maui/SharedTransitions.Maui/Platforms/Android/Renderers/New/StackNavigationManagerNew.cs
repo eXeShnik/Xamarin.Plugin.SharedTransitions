@@ -177,6 +177,7 @@ public class StackNavigationManagerNew : StackNavigationManager, ITransitionRend
             }
         }
 
+        FragmentNavigator.Extras.Builder extrasBuilder = null;
         // Current BackStack has less entries then incoming new page stack
         // This will add Back Stack Entries until the back stack and the new stack 
         // match up
@@ -187,8 +188,6 @@ public class StackNavigationManagerNew : StackNavigationManager, ITransitionRend
             for (int i = fragmentNavDestinations.Count; i < newPageStack.Count; i++)
             {
                 var dest = AddFragmentDestination();
-
-                FragmentNavigator.Extras.Builder extrasBuilder = null;
 
                 if (shouldAddTransition && i == newPageStack.Count - 1)
                 {
@@ -218,8 +217,23 @@ public class StackNavigationManagerNew : StackNavigationManager, ITransitionRend
         // Our back stack has more entries on it then  
         else
         {
+            var currentPage = (Page)newPageStack[^1];
+            var prevMap = TransitionMap.GetMap(PropertiesContainer, null, true);
+
+            extrasBuilder = new FragmentNavigator.Extras.Builder()
+                .AddSharedElements(prevMap.ToDictionary(k => (AView)k.NativeView.Target, v => currentPage.Id + "_" + v.TransitionName));
+            
             int popToId = fragmentNavDestinations[newPageStack.Count - 1].Id;
-            navController.PopBackStack(popToId, false);
+            // navController.Navigate(popToId, null, null, extrasBuilder?.Build());
+            // navController.PopBackStack(popToId, false);
+            navController.NavigateUp();
+            
+            TransitionMap.RemoveFromMap(PropertiesContainer);
+            
+            // var lastIndex = fragmentNavDestinations.Count - 1;
+            //
+            // navController.Graph.Remove(fragmentNavDestinations[lastIndex]);
+            // fragmentNavDestinations.RemoveAt(lastIndex);
         }
 
         // We only keep destinations around that are on the backstack

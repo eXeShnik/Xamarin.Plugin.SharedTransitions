@@ -1,11 +1,11 @@
 using Plugin.SharedTransitions;
-using Plugin.SharedTransitions.Platforms.Android.Renderers.New;
 
 #if IOS
 using Plugin.SharedTransitions.Platforms.iOS.Renderers;
 #elif ANDROID
 using Plugin.SharedTransitions.Platforms.Android.Renderers;
 using Plugin.SharedTransitions.Platforms.Android.Renderers.Copy;
+using Plugin.SharedTransitions.Platforms.Android.Renderers.New;
 #endif
 
 namespace SharedTransitions.Maui;
@@ -21,13 +21,13 @@ public static class AppHostBuilderExtensions
                     if (!replaceDefaultHandlers)
                     {
                         collection
-                            .AddHandler<SharedTransitionNavigationPage, SharedTransitionNavigationRendererNew>()
+                            .AddHandler<SharedTransitionNavigationPage, SharedTransitionNavigationRenderer>()
                             .AddHandler<SharedTransitionShell, SharedTransitionShellRenderer>();
                     }
                     else
                     {
                         collection
-                            .AddHandler<NavigationPage, SharedTransitionNavigationRendererNew>()
+                            .AddHandler<NavigationPage, SharedTransitionNavigationRenderer>()
                             .AddHandler<Shell, SharedTransitionShellRenderer>();
                     }
 
