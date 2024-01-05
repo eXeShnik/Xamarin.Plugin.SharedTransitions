@@ -21,13 +21,21 @@ public static class AppHostBuilderExtensions
                     if (!replaceDefaultHandlers)
                     {
                         collection
+#if IOS
                             .AddHandler<SharedTransitionNavigationPage, SharedTransitionNavigationRenderer>()
+#elif ANDROID
+                            .AddHandler<SharedTransitionNavigationPage, SharedTransitionNavigationRendererNew>()
+#endif
                             .AddHandler<SharedTransitionShell, SharedTransitionShellRenderer>();
                     }
                     else
                     {
                         collection
+#if IOS
                             .AddHandler<NavigationPage, SharedTransitionNavigationRenderer>()
+#elif ANDROID
+                            .AddHandler<NavigationPage, SharedTransitionNavigationRendererNew>()
+#endif
                             .AddHandler<Shell, SharedTransitionShellRenderer>();
                     }
 
